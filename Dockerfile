@@ -12,6 +12,7 @@ FROM alpine:latest
 RUN apk add --no-cache ca-certificates
 COPY --from=builder /go-ethereum/build/bin/geth /usr/local/bin/ssc
 COPY --from=builder /go-ethereum/build/bin/bootnode /usr/local/bin/bootnode
+COPY --from=builder /go-ethereum/build/bin/puppeth /usr/local/bin/puppeth
 
 EXPOSE 8545 8546 8547 30303 30303/udp
 CMD ["ssc"]

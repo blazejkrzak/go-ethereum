@@ -18,9 +18,9 @@ geth:
 
 boot-and-geth: geth
 	build/env.sh go run build/ci.go install ./cmd/bootnode
+	build/env.sh go run build/ci.go install ./cmd/puppeth
 	@echo "Done building."
 	@echo "Run \"$(GOBIN)/bootnode\" to launch bootnode."
-
 
 all:
 	build/env.sh go run build/ci.go install
