@@ -2,7 +2,7 @@ version: "3"
 
 services:
   client:
-    image: silesiacoin/infra-client:v0.02
+    image: silesiacoin/infra-client:v0.03
     build: ./
     working_dir: /go-ethereum
     volumes:
