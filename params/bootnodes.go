@@ -33,7 +33,7 @@ var MainnetBootnodes = []string{
 // TestnetBootnodes are the enode URLs of the P2P bootstrap nodes running on the
 // Silesiacoin test network.
 var TestnetBootnodes = []string{
-	"enode://d26ea46056e927a3de8ea0268ee472be654170f2de34b6fceb87f9474b3f2c68e1b0905ed555fc1b4485a3800279ecb904010dc38092413c76f291c8c0e1563f@bootnode.ssc:30303",             // Local terra implementation
+	//"enode://d26ea46056e927a3de8ea0268ee472be654170f2de34b6fceb87f9474b3f2c68e1b0905ed555fc1b4485a3800279ecb904010dc38092413c76f291c8c0e1563f@bootnode.ssc:30303",             // Local terra implementation
 	"enode://d26ea46056e927a3de8ea0268ee472be654170f2de34b6fceb87f9474b3f2c68e1b0905ed555fc1b4485a3800279ecb904010dc38092413c76f291c8c0e1563f@testnode.silesiacoin.com:30303", // Cloud terra implementation
 	//"enode://865a63255b3bb68023b6bffd5095118fcc13e79dcf014fe4e47e065c350c7cc72af2e53eff895f11ba1bbb6a2b33271c1116ee870f266618eadfc2e78aa7349c@52.176.100.77:30303",  // US-Azure parity
 	//"enode://6332792c4a00e3e4ee0926ed89e0d27ef985424d97b6a45bf0f23e51f0dcb5e66b875777506458aea7af6f9e4ffb69f43f3778ee73c81ed9d34c51c4b16b0b0f@52.232.243.152:30303", // Parity
