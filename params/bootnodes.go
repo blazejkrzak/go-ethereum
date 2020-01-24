@@ -19,18 +19,15 @@ package params
 // MainnetBootnodes are the enode URLs of the P2P bootstrap nodes running on
 // the main Ethereum network.
 var MainnetBootnodes = []string{
-	// Ethereum Foundation Go Bootnodes
-	"enode://d860a01f9722d78051619d1e2351aba3f43f943f6f00718d1b9baa4101932a1f5011f16bb2b1bb35db20d6fe28fa0bf09636d26a87d31de9ec6203eeedb1f666@18.138.108.67:30303",   // bootnode-aws-ap-southeast-1-001
-	"enode://22a8232c3abc76a16ae9d6c3b164f98775fe226f0917b0ca871128a74a8e9630b458460865bab457221f1d448dd9791d24c4e5d88786180ac185df813a68d4de@3.209.45.79:30303",     // bootnode-aws-us-east-1-001
-	"enode://ca6de62fce278f96aea6ec5a2daadb877e51651247cb96ee310a318def462913b653963c155a0ef6c7d50048bba6e6cea881130857413d9f50a621546b590758@34.255.23.113:30303",   // bootnode-aws-eu-west-1-001
-	"enode://279944d8dcd428dffaa7436f25ca0ca43ae19e7bcf94a8fb7d1641651f92d121e972ac2e8f381414b80cc8e5555811c2ec6e1a99bb009b3f53c4c69923e11bd8@35.158.244.151:30303",  // bootnode-aws-eu-central-1-001
-	"enode://8499da03c47d637b20eee24eec3c356c9a2e6148d6fe25ca195c7949ab8ec2c03e3556126b0d7ed644675e78c4318b08691b7b57de10e5f0d40d05b09238fa0a@52.187.207.27:30303",   // bootnode-azure-australiaeast-001
-	"enode://103858bdb88756c71f15e9b5e09b56dc1be52f0a5021d46301dbbfb7e130029cc9d0d6f73f693bc29b665770fff7da4d34f3c6379fe12721b5d7a0bcb5ca1fc1@191.234.162.198:30303", // bootnode-azure-brazilsouth-001
-	"enode://715171f50508aba88aecd1250af392a45a330af91d7b90701c436b618c86aaa1589c9184561907bebbb56439b8f8787bc01f49a7c77276c58c1b09822d75e8e8@52.231.165.108:30303",  // bootnode-azure-koreasouth-001
-	"enode://5d6d7cd20d6da4bb83a1d28cadb5d409b64edf314c0335df658c1a54e32c7c4a7ab7823d57c39b6a757556e68ff1df17c748b698544a55cb488b52479a92b60f@104.42.217.25:30303",   // bootnode-azure-westus-001
-
-	// Ethereum Foundation C++ Bootnodes
-	"enode://979b7fa28feeb35a4741660a16076f1943202cb72b6af70d327f053e248bab9ba81760f39d0701ef1d8f89cc1fbd2cacba0710a12cd5314d5e0c9021aa3637f9@5.1.83.226:30303", // DE
+	// Silesiacoin Foundation Go Bootnodes
+	"enode://4470ab64fa94cc854ba4f79e7b846cf3a5e2d960f13bb103c2c8878885ddfae422d96a8739929382ae2de1522a5bf9ec2825b77dab8d839e7a43500c9732882b@bootnode1.silesiacoin.com:30303", // bootnode-local-1
+	"enode://769c6f081e11c4bc4e4436c93c373f44e1226b8ee2fde086ac8eac38c748fd6dd4558f5d86cfba8f1012d34a352369c10e2879a534ade9da38cf10527186c799@bootnode2.silesiacoin.com:30303", // bootnode-local-2
+	"enode://b5f7450bdd598c0048a46e7e345bdf426876d9ff37127976ef16080ed7641dd8279406bb82dccc0125afddc0f0c0ae87c6ed5c36fcd25f59a365ad1859b5abf8@bootnode3.silesiacoin.com:30303", // bootnode-gcp-1
+	"enode://445e870d61c96bbd34211437222d09d97c4b2da99ed5f0832d0869a764b10377b13825d742b92f5de227b2517318aca51b779f5944ea5ce6289762df1c901f86@bootnode4.silesiacoin.org:30303", // bootnode-gcp-2
+	"enode://0ed7807ffd693dffa0d93dddbec5e864365105324aed35d81b753eb47382d50edd1e3246709163834994a4bcd1f9b4bd09b35da2a187d7d0bf85e098bcbf8d19@bootnode5.silesiacoin.org:30303", // bootnode-aws-1
+	"enode://47106ba1e12d4506831f750165bd4a92fec3480dc3c4d592fd255c7a3a32c51fd8e788c79b9b7ca1ac142c77bd1c1d0d32fcaac4214ebc4a4ec6d2e2a5eadeed@bootnode6.silesiacoin.org:30303", // bootnode-aws-2
+	"enode://5c444c192be39dab5a8fbaf15654f19aacc78500fb63f8e02deee896cd7bf33fce769665e4600358d66fba2273db86e971b9beb9bbc6e9ec4a6834162975d9ad@bootnode7.ssc:30303",             // bootnode-do-1
+	"enode://bc154cee3a01fd31258df5927a4999e2441aad024667266d4e92aec828dc652b922db8f33f2fff75d674b3dfbdbc1c9de3d47c8223d8a63bd59edd2950a048e2@bootnode8.ssc:30303",             // bootnode-do-2
 }
 
 // TestnetBootnodes are the enode URLs of the P2P bootstrap nodes running on the
