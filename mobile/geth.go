@@ -149,8 +149,12 @@ func NewNode(datadir string, config *NodeConfig) (stack *Node, _ error) {
 		// If we have the testnet, hard code the chain configs too
 		if config.EthereumGenesis == TestnetGenesis() {
 			genesis.Config = params.TestnetChainConfig
-			if config.EthereumNetworkID == 1 {
-				config.EthereumNetworkID = 3
+
+			testChainId := params.TestChainConfig.ChainID.Int64()
+			mainChainId := params.MainnetChainConfig.ChainID.Int64()
+
+			if config.EthereumNetworkID == mainChainId {
+				config.EthereumNetworkID = testChainId
 			}
 		}
 	}
