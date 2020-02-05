@@ -303,3 +303,37 @@ func saveGenesis(folder, network, client string, spec interface{}) {
 	}
 	log.Info("Saved genesis chain spec", "client", client, "path", path)
 }
+
+func (w *wizard) importFormerExistingGenesis() {
+	// Construct a default genesis block
+	genesis := &core.Genesis{
+		Alloc:      core.DecodePrealloc(core.MainnetAllocData),
+		Config:     params.MainnetChainConfig,
+		GasLimit:   4700000,
+		Difficulty: big.NewInt(524288),
+	}
+	genesis.Config.Ethash = new(params.EthashConfig)
+	genesis.ExtraData = make([]byte, 32)
+	// All done, store the genesis and flush to disk
+	log.Info("Configured new genesis block")
+
+	w.conf.Genesis = genesis
+	w.conf.flush()
+}
+
+func (w *wizard) importFormerExistingTestGenesis() {
+	// Construct a default genesis block
+	genesis := &core.Genesis{
+		Alloc:      core.DecodePrealloc(core.TestnetAllocData),
+		Config:     params.TestChainConfig,
+		GasLimit:   4700000,
+		Difficulty: big.NewInt(524288),
+	}
+	genesis.Config.Ethash = new(params.EthashConfig)
+	genesis.ExtraData = make([]byte, 32)
+	// All done, store the genesis and flush to disk
+	log.Info("Configured new test genesis block")
+
+	w.conf.Genesis = genesis
+	w.conf.flush()
+}

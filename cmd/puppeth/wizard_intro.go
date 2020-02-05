@@ -135,6 +135,8 @@ func (w *wizard) run() {
 				fmt.Println("What would you like to do? (default = create)")
 				fmt.Println(" 1. Create new genesis from scratch")
 				fmt.Println(" 2. Import already existing genesis")
+				fmt.Println(" 3. Import former existing genesis")
+				fmt.Println(" 4. Import former existing test genesis")
 
 				choice := w.read()
 				switch {
@@ -142,6 +144,10 @@ func (w *wizard) run() {
 					w.makeGenesis()
 				case choice == "2":
 					w.importGenesis()
+				case choice == "3":
+					w.importFormerExistingGenesis()
+				case choice == "4":
+					w.importFormerExistingTestGenesis()
 				default:
 					log.Error("That's not something I can do")
 				}
