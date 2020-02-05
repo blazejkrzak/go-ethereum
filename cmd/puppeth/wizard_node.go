@@ -77,6 +77,19 @@ func (w *wizard) deployNode(boot bool) {
 			infos.ethashdir = w.readDefaultString(infos.ethashdir)
 		}
 	}
+
+	fmt.Println()
+	fmt.Printf("What is the nodekeyhex for node? 'default' will generate random enode address \n")
+	infos.nodeKeyHex = w.readDefaultString("default")
+
+	if "default" == infos.nodeKeyHex {
+		infos.nodeKeyHex = ""
+	}
+
+	fmt.Println()
+	fmt.Printf("Do you want to pass testnet as an argument?. Type 'yes' if so. \n")
+	infos.testNet = w.readDefaultString("no") != "no"
+
 	// Figure out which port to listen on
 	fmt.Println()
 	fmt.Printf("Which TCP/UDP port to listen on? (default = %d)\n", infos.port)
