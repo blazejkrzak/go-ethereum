@@ -325,7 +325,7 @@ func (w *wizard) importFormerExistingTestGenesis() {
 	// Construct a default genesis block
 	genesis := &core.Genesis{
 		Alloc:      core.DecodePrealloc(core.TestnetAllocData),
-		Config:     params.TestChainConfig,
+		Config:     params.TestnetChainConfig,
 		GasLimit:   4700000,
 		Difficulty: big.NewInt(524288),
 	}

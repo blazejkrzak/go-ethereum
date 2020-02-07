@@ -32,7 +32,7 @@ import (
 
 // nodeDockerfile is the Dockerfile required to run an Ethereum node.
 var nodeDockerfile = `
-FROM silesiacoin/infra-client:v0.09
+FROM {{.DockerImage}}
 
 ADD genesis.json /genesis.json
 {{if .Unlock}}
@@ -60,7 +60,7 @@ services:
       - "{{.Port}}:{{.Port}}"
       - "{{.Port}}:{{.Port}}/udp"
     volumes:
-      - {{.Datadir}}:/root/.ethereum{{if .Ethashdir}}
+      - {{.Datadir}}:/root/.silesiacoin{{if .Ethashdir}}
       - {{.Ethashdir}}:/root/.ethash{{end}}
     environment:
       - PORT={{.Port}}/tcp
@@ -98,20 +98,21 @@ func deployNode(client *sshClient, network string, bootnodes []string, config *n
 	}
 	dockerfile := new(bytes.Buffer)
 	template.Must(template.New("").Parse(nodeDockerfile)).Execute(dockerfile, map[string]interface{}{
-		"NetworkID":  config.network,
-		"Port":       config.port,
-		"IP":         client.address,
-		"Peers":      config.peersTotal,
-		"LightFlag":  lightFlag,
-		"Bootnodes":  strings.Join(bootnodes, ","),
-		"Ethstats":   config.ethstats,
-		"Etherbase":  config.etherbase,
-		"GasTarget":  uint64(1000000 * config.gasTarget),
-		"GasLimit":   uint64(1000000 * config.gasLimit),
-		"GasPrice":   uint64(1000000000 * config.gasPrice),
-		"Unlock":     config.keyJSON != "",
-		"NodeKeyHex": config.nodeKeyHex,
-		"Testnet":    config.testNet,
+		"NetworkID":   config.network,
+		"Port":        config.port,
+		"IP":          client.address,
+		"Peers":       config.peersTotal,
+		"LightFlag":   lightFlag,
+		"Bootnodes":   strings.Join(bootnodes, ","),
+		"Ethstats":    config.ethstats,
+		"Etherbase":   config.etherbase,
+		"GasTarget":   uint64(1000000 * config.gasTarget),
+		"GasLimit":    uint64(1000000 * config.gasLimit),
+		"GasPrice":    uint64(1000000000 * config.gasPrice),
+		"Unlock":      config.keyJSON != "",
+		"NodeKeyHex":  config.nodeKeyHex,
+		"Testnet":     config.testNet,
+		"DockerImage": config.nodeImage,
 	})
 	files[filepath.Join(workdir, "Dockerfile")] = dockerfile.Bytes()
 
@@ -171,6 +172,7 @@ type nodeInfos struct {
 	gasPrice   float64
 	nodeKeyHex string
 	testNet    bool
+	nodeImage  string
 }
 
 // Report converts the typed struct into a plain string->string map, containing
@@ -242,6 +244,7 @@ func checkNode(client *sshClient, network string, boot bool) (*nodeInfos, error)
 		return nil, ErrServiceUnreachable
 	}
 	genesis := bytes.TrimSpace(out)
+	fmt.Printf("\n[MODULE_NODE]Genesis on %s: %s\n", enode, genesis)
 
 	keyJSON, keyPass := "", ""
 	if out, err = client.Run(fmt.Sprintf("docker exec %s_%s_1 cat /signer.json", network, kind)); err == nil {

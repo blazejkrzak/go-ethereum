@@ -33,6 +33,7 @@ func (w *wizard) deployNode(boot bool) {
 		log.Error("No genesis block configured")
 		return
 	}
+	fmt.Printf("Infos network: %s ", w.conf.Genesis.Config.ChainID)
 	if w.conf.ethstats == "" {
 		log.Error("No ethstats server configured")
 		return
@@ -57,6 +58,8 @@ func (w *wizard) deployNode(boot bool) {
 
 	infos.genesis, _ = json.MarshalIndent(w.conf.Genesis, "", "  ")
 	infos.network = w.conf.Genesis.Config.ChainID.Int64()
+	fmt.Println()
+	fmt.Printf("Genesis chain id: %v \n", w.conf.Genesis.Config.ChainID.Int64())
 
 	// Figure out where the user wants to store the persistent data
 	fmt.Println()
@@ -87,8 +90,13 @@ func (w *wizard) deployNode(boot bool) {
 	}
 
 	fmt.Println()
-	fmt.Printf("Do you want to pass testnet as an argument?. Type 'yes' if so. \n")
+	fmt.Printf("Do you want to pass testnet as an argument?. Type anything other than 'no' if so. \n")
 	infos.testNet = w.readDefaultString("no") != "no"
+
+	dockerImage := "silesiacoin/infra-client:latest"
+	fmt.Println()
+	fmt.Printf("Please provide image to be run on a node instance. (Default: %s)\n", dockerImage)
+	infos.nodeImage = w.readDefaultString(dockerImage)
 
 	// Figure out which port to listen on
 	fmt.Println()
