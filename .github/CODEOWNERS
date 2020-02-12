@@ -21,3 +21,6 @@ p2p/protocols                   @zelig @janos @justelad
 p2p/testing                     @zelig @janos @justelad
 signer/                         @holiman
 whisper/                        @gballet @gluk256
+
+# Ssc owners
+implementation                  @eddTubbs @plankJ

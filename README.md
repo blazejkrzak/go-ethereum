@@ -1,5 +1,32 @@
-## Go Ethereum
+## Silesiacoin
+Join the revolution!
 
+### Start Price 1 EUR
+#### GENESIS ALLOC SUM = 4004180 SSC
+
+Estimated accumulated wealth of Silesian Citisens = 20 MLD PLN ~~11% of whole Polish accumulated wealth of Polish citizens = 173,2 MLD PLN
+
+### Genesis Alloc
+Presale = [500 000 SSC]
+Creator Start Fee = [1 141 098,5 SSC]
+Contributors = [2 363 081.5 SSC]
+
+[ ] Distribution will be described in Distribution Policy
+[ ] Silesiacoin will have proof of work by code in Services Policy [api, market, mobile, desktop, wallet]
+[ ] Silesiacoin will try to achieve fast payments in local Shops / Markets with auto exchange in global crypto currencies as LTC, BTC, ETH, PLNCOIN. Considered additional possibilities.
+[x] Silesiacoin will have support in ATM machines
+[ ] Silesiacoin will have support in local Exchange Stationary Shops
+[ ] Silesiacoin will try become VOTING alternative
+[ ] Silesiacoin will implement game Silesiacoin Cities
+[ ] Silesiacoin will try to become widely respected in local market
+[ ] Silesiacoin will try to enrich the poor via social help [especially food, shelter and clothes]
+[ ] Silesiacoin will try to become TAXATION alter state
+[ ] Silesiacoin will merchandise products
+[ ] Silesiacoin will be rewarding those, whom spread the word
+[ ] If POS consensus will be stable, will be implemented
+
+
+## Go Ethereum
 Official Golang implementation of the Ethereum protocol.
 
 [![API Reference](
