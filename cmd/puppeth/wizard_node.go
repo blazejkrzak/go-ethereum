@@ -59,7 +59,7 @@ func (w *wizard) deployNode(boot bool) {
 	infos.genesis, _ = json.MarshalIndent(w.conf.Genesis, "", "  ")
 	infos.network = w.conf.Genesis.Config.ChainID.Int64()
 	fmt.Println()
-	fmt.Printf("Genesis chain id: %v \n", w.conf.Genesis.Config.ChainID.Int64())
+	fmt.Printf("Genesis chain id: %v \n", infos.network)
 
 	// Figure out where the user wants to store the persistent data
 	fmt.Println()

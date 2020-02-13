@@ -244,7 +244,6 @@ func checkNode(client *sshClient, network string, boot bool) (*nodeInfos, error)
 		return nil, ErrServiceUnreachable
 	}
 	genesis := bytes.TrimSpace(out)
-	fmt.Printf("\n[MODULE_NODE]Genesis on %s: %s\n", enode, genesis)
 
 	keyJSON, keyPass := "", ""
 	if out, err = client.Run(fmt.Sprintf("docker exec %s_%s_1 cat /signer.json", network, kind)); err == nil {
