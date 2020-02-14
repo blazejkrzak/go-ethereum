@@ -22,6 +22,16 @@ boot-and-geth: geth
 	@echo "Done building."
 	@echo "Run \"$(GOBIN)/bootnode\" to launch bootnode."
 
+docker-push-all: docker-push docker-push-puppeth
+
+docker-push:
+	docker-compose build
+	docker-compose push
+
+docker-push-puppeth:
+	docker-compose -f "./.docker/puppeth/docker-compose.yml" build
+	docker-compose -f "./.docker/puppeth/docker-compose.yml" push
+
 all:
 	build/env.sh go run build/ci.go install
 
