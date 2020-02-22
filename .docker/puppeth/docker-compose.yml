@@ -4,3 +4,7 @@ services:
   wallet:
     image: silesiacoin/wallet:v0.01
     build: ./wallet
+
+  explorer:
+    image: silesiacoin/explorer:v0.01
+    build: ./explorer
